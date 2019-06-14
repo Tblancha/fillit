@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_printbit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 15:01:15 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/14 00:46:15 by tblancha         ###   ########.fr       */
+/*   Created: 2019/06/14 03:33:03 by tblancha          #+#    #+#             */
+/*   Updated: 2019/06/14 03:51:11 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_realloc(char *ptr, size_t size)
+void	ft_printbit(int bin)
 {
-	char	*str;
-	size_t	len;
+	size_t power;
 
-	if (!ptr)
-		return (NULL);
-	len = ft_strlen(ptr);
-	if (!(str = (char*)malloc(sizeof(char) * len + size + 1)))
-		return (NULL);
-	if (!(str = ft_memcpy(str, ptr, len)))
-		return (NULL);
-	str[len] = '\0';
-	return (str);
+	power = 32;
+	if (bin < 0)
+	{
+		ft_putchar('-');
+		bin = -bin;
+	}
+	while (power-- != 0)
+	{
+		if (bin >= ft_pow(2, power))
+		{
+			ft_putchar('1');
+			bin = bin - ft_pow(2, power);
+		}
+		else
+			ft_putchar('0');
+		if (power % 8 == 0)
+			ft_putchar(' ');
+	}
+	ft_putchar('\n');
 }

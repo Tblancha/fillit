@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 22:04:23 by tblancha          #+#    #+#             */
-/*   Updated: 2019/04/26 17:44:16 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/14 03:59:47 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,9 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_iswhitespace(char c);
 size_t			ft_countword(char const *s, char c);
 int				ft_intlen(int n);
-void			*ft_realloc(void *ptr, size_t size);
+char			*ft_realloc(char *ptr, size_t size);
 char			*ft_strrev(char *str);
+long int		ft_pow(int nb, size_t exp);
+void			ft_printbit(int bin);
 
 #endif

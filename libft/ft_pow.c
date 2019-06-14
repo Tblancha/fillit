@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 15:01:15 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/14 00:46:15 by tblancha         ###   ########.fr       */
+/*   Created: 2019/06/14 02:31:39 by tblancha          #+#    #+#             */
+/*   Updated: 2019/06/14 03:59:26 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_realloc(char *ptr, size_t size)
+long int	ft_pow(int nb, size_t exp)
 {
-	char	*str;
-	size_t	len;
+	size_t		i;
+	long int	result;
 
-	if (!ptr)
-		return (NULL);
-	len = ft_strlen(ptr);
-	if (!(str = (char*)malloc(sizeof(char) * len + size + 1)))
-		return (NULL);
-	if (!(str = ft_memcpy(str, ptr, len)))
-		return (NULL);
-	str[len] = '\0';
-	return (str);
+	i = 1;
+	result = nb;
+	if (exp == 0)
+		return (1);
+	while (i++ < exp)
+		result = result * nb;
+	return (result);
 }

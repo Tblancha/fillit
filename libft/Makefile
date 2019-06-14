@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 18:02:14 by tblancha          #+#    #+#              #
-#    Updated: 2019/04/26 17:43:44 by tblancha         ###   ########.fr        #
+#    Updated: 2019/06/14 03:47:42 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,8 @@ SRC =	ft_atoi.c \
 		ft_intlen.c \
 		ft_realloc.c \
 		ft_strrev.c \
+		ft_pow.c \
+		ft_printbit.c \
 
 OBJ =	$(SRC:.c=.o)
 
