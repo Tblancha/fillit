@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 19:03:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/05/31 17:25:32 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/15 04:57:22 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,20 @@ int				*check_lv(char *str)
 	tetri = NULL;
 	if (check_ld(str))
 	{
+		if (!(tetri = (int*)malloc(sizeof(int) * 3)))
+			return (NULL);
 		tetri[0] = 7;
 		tetri[1] = 4;
+		tetri[2] = 0;
 		return (tetri);
 	}
 	if (check_lu(str))
 	{
+		if (!(tetri = (int*)malloc(sizeof(int) * 3)))
+			return (NULL);
 		tetri[0] = 1;
 		tetri[1] = 7;
+		tetri[2] = 0;
 		return (tetri);
 	}
 	return (NULL);

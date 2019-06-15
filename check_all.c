@@ -6,11 +6,12 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:40:03 by tblancha          #+#    #+#             */
-/*   Updated: 2019/05/31 17:22:20 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/15 05:56:24 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 static int		*check1(char *str)
 {
@@ -62,6 +63,11 @@ int				**check_all(char **tetriminos)
 	i = 0;
 	tetri = NULL;
 	while (tetriminos[i])
+		i++;
+	if (!(tetri = (int**)malloc(sizeof(int*) * i + 1)))
+		return (NULL);
+	i = 0;
+	while (tetriminos[i])
 	{
 		tetri[i] = check1(tetriminos[i]);
 		if (tetri[i] == NULL)
@@ -70,5 +76,5 @@ int				**check_all(char **tetriminos)
 			return (NULL);
 		i++;
 	}
-	return (NULL);
+	return (tetri);
 }

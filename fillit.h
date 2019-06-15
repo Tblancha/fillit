@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 14:48:43 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/14 06:02:09 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/14 23:32:21 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		*check_s(char *str);
 int		*check_th(char *str);
 int		*check_tv(char *str);
 int		*check_z(char *str);
+int		**check_all(char **tetriminos);
 char	**recupdata(char **str);
 
 #endif
