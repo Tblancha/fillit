@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 14:48:43 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/14 23:32:21 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/22 04:51:55 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int		*check_tv(char *str);
 int		*check_z(char *str);
 int		**check_all(char **tetriminos);
 char	**recupdata(char **str);
+int		ft_nbtetri(int **tetri);
+int		ft_minsquare(int nbtetri);
 
 #endif

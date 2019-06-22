@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/15 05:57:26 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/22 04:54:11 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ int main(int ac, char **av)
 			j = 0;
 		}
 	}
+	printf("\ntetri est rempli, on check nbtetri et minsquare\n");
+	printf("nbtetri = %d\n", ft_nbtetri(tetri));
+	printf("minsquare = %d\n", ft_minsquare(ft_nbtetri(tetri)));
 	return (0);
 }
