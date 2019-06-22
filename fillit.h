@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 14:48:43 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/22 04:51:55 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/22 20:29:07 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ int		**check_all(char **tetriminos);
 char	**recupdata(char **str);
 int		ft_nbtetri(int **tetri);
 int		ft_minsquare(int nbtetri);
+int		*lenmaxtetri(int *tetri);
+int		ft_cmptetritab(int *tetri, int *tab, int minsquare, int *pos);
+int		*ft_newposition(int *tab, int minsquare, int *tetri);
 
 #endif
