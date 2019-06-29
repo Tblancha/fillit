@@ -6,20 +6,19 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/22 04:54:11 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/28 02:29:53 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-#include <unistd.h>
 
 int main(int ac, char **av)
 {
 	char	**tetriminos;
 	int		i;
 	int		j;
-	int		**tetri;
+	t_fill	fill;
 
 	if (ac != 2)
 	{
@@ -36,19 +35,19 @@ int main(int ac, char **av)
 	if (i == 0)
 		printf("fichier non conforme\n");
 	i = 0;
-	tetri = check_all(tetriminos);
-	if (tetri == NULL)
+	fill.tetri = check_all(tetriminos);
+	if (fill.tetri == NULL)
 	{
 		printf("tetri est vide, donc au moins une piece est fausse\n");
 		return (0);
 	}
 	else
 	{
-		while (tetri[i])
+		while (fill.tetri[i])
 		{
-			while (tetri[i][j])
+			while (fill.tetri[i][j])
 			{
-				printf("tetri[%d][%d] = %d\n", i, j, tetri[i][j]);
+				printf("tetri[%d][%d] = %d\n", i, j, fill.tetri[i][j]);
 				j++;
 			}
 			printf("\n");
@@ -56,8 +55,28 @@ int main(int ac, char **av)
 			j = 0;
 		}
 	}
+	i = 0;
+	j = 0;
+	fill = initialization(&fill);
 	printf("\ntetri est rempli, on check nbtetri et minsquare\n");
-	printf("nbtetri = %d\n", ft_nbtetri(tetri));
-	printf("minsquare = %d\n", ft_minsquare(ft_nbtetri(tetri)));
+	printf("nbtetri = %d\n", fill.nbtetri);
+	printf("minsquare = %d\n\n", fill.minsquare);
+	while (i < fill.nbtetri)
+	{
+		while (fill.tetri[i][j])
+		{
+			printf("tetri[%d][%d] = %d\n", i, j, fill.tetri[i][j]);
+			j++;
+		}
+		printf("max vertical = %d\nmax horizontal = %d\n", fill.max[i][0], fill.max[i][1]);
+		printf("pos de base = %d, %d\n\n", fill.pos[i][0], fill.pos[i][1]);
+		i++;
+		j = 0;
+	}
+//	fill.tab[0] = 31;
+//	fill.tab[1] = 15;
+//	fill.tab[2] = 15;
+	fill.pos[0] = ft_newposition(fill, 0);
+	printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
 	return (0);
 }

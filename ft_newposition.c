@@ -6,48 +6,38 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 05:37:05 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/22 20:24:32 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/30 01:38:51 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
-static int	*searchzero(int *tab, int minsquare)
+static int	*searchzero(t_fill fill, int n)
 {
-	static int	i = -1;
-	static int	j;
-	int			pos[2];
-
-	while (j < minsquare)
+	while (fill.pos[n][0] <= (fill.minsquare - fill.max[n][0]))
 	{
-		while (i < minsquare)
+		while (fill.pos[n][1] <= (fill.minsquare - fill.max[n][1]))
 		{
-			i++;
-			if ((tab[j] >> i) % 2 == 0)
-			{
-				pos[0] = j;
-				pos[1] = i;
-				return (pos);
-			}
+			if ((fill.tab[fill.pos[n][0]] >> fill.pos[n][1]) % 2 == 0)
+				return (fill.pos[n]);
+			fill.pos[n][1]++;
+			printf("\nLA\nfill.pos[n][1] = %d\nLA\n", fill.pos[n][1]);
 		}
-		i = -1;
-		j++;
+		fill.pos[n][1] = 0;
+		fill.pos[n][0]++;
 	}
 	return (NULL);
 }
 
-int			*ft_newposition(int *tab, int minsquare, int *tetri)
+int			*ft_newposition(t_fill fill, int n)
 {
-	int	*pos;
-
-	i = 0;
-	j = 0;
-	pos = searchzero(tab, minsquare);
-	while (pos != NULL)
+	fill.pos[n] = searchzero(fill, n);
+	while (fill.pos[n] != NULL)
 	{
-		if (ft_cmptetritab(tetri, tab, minsquare, pos))
-			return (pos);
-		pos = searchzero(tab, minsquare);
+		if (ft_cmptetritab(fill, n))
+			return (fill.pos[n]);
+		fill.pos[n] = searchzero(fill, n);
 	}
 	return (NULL);
 }
