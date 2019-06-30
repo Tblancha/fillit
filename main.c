@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/30 07:17:01 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/30 17:54:13 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,22 @@ int main(int ac, char **av)
 			j = 0;
 		}
 	}
+
+
+
+
+
 	i = 0;
 	j = 0;
 	fill = initialization(&fill);
 	printf("\ntetri est rempli, on check nbtetri et minsquare\n");
 	printf("nbtetri = %d\n", fill.nbtetri);
 	printf("minsquare = %d\n\n", fill.minsquare);
+
+
+
+
+	printf("Les tetri en int, avec la taille max\n");
 	while (i < fill.nbtetri)
 	{
 		while (fill.tetri[i][j])
@@ -68,19 +78,43 @@ int main(int ac, char **av)
 			printf("tetri[%d][%d] = %d\n", i, j, fill.tetri[i][j]);
 			j++;
 		}
-		printf("max vertical = %d\nmax horizontal = %d\n", fill.max[i][0], fill.max[i][1]);
+		printf("\nmax vertical = %d\nmax horizontal = %d\n", fill.max[i][0], fill.max[i][1]);
 		printf("pos de base = %d, %d\n\n", fill.pos[i][0], fill.pos[i][1]);
 		i++;
 		j = 0;
 	}
-//	fill.tab[0] = 31;
-//	fill.tab[1] = 15;
-//	fill.tab[2] = 15;
-	printf("tab[0] = %d\n", fill.tab[0]);
+
+
+
+
+	//	fill.tab[0] = 31;
+	//	fill.tab[1] = 15;
+	//	fill.tab[2] = 15;
 	fill.pos[0] = ft_newposition(fill, 0);
 	if (fill.pos[0])
 		printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
 	else
 		printf("newposition ret NULL car minsquare est trop petit surement\n");
+
+
+
+
+
+
+	printf("\n\n\nTest de filltab\n\n");
+	if (fill.pos[0])
+		fill.tab = ft_filltab(fill, 0);
+	i = 0;
+	while (fill.tab[i])
+	{
+		printf("tab[%d] = %d\n", i, fill.tab[0]);
+		i++;
+	}	
+	i = 0;
+	while (fill.tab[i])
+	{
+		ft_printbit(fill.tab[i]);
+		i++;
+	}
 	return (0);
 }

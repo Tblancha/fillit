@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 14:48:43 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/25 10:31:16 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/30 10:49:14 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ int				**lenmaxtetri(int **tetri, int nbtetri);
 int				ft_cmptetritab(t_fill fill, int n);
 int				*ft_newposition(t_fill fill, int n);
 t_fill			initialization(t_fill *fill);
+int				*reinipos(t_fill fill, int n);
+int				*ft_filltab(t_fill fill, int n);
 
 #endif

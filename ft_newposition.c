@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 05:37:05 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/30 01:38:51 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/30 17:57:10 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int			*ft_newposition(t_fill fill, int n)
 	{
 		if (ft_cmptetritab(fill, n))
 			return (fill.pos[n]);
+		fill.pos[n][1]++;
 		fill.pos[n] = searchzero(fill, n);
 	}
 	return (NULL);
