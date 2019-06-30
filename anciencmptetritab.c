@@ -6,41 +6,39 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 18:47:24 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/30 07:05:21 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/30 03:27:54 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-static int		cmpvertical(t_fill fill, int n)
-{
-	if (fill.max[n][0] + fill.pos[n][0] > fill.minsquare)
-		return (0);
-	return (1);
-}
-
-static int		cmphorizontal(t_fill fill, int n)
-{
-	if (fill.max[n][1] + fill.pos[n][1] > fill.minsquare)
-		return (0);
-	return (1);
-}
-
-int				ft_cmptetritab(t_fill fill, int n)
+#include <stdio.h>
+int		ft_cmptetritab(t_fill fill, int n)
 {
 	int	i;
 
 	i = 0;
-	if (!cmpvertical(fill, n))
-		return (0);
-	if (!cmphorizontal(fill, n))
-		return (0);
-	while (fill.tetri[n][i])
+	printf("cmptetritab\n");
+	if (fill.max[n][0] + fill.pos[n][0] > fill.minsquare) //vertical
 	{
-		if ((fill.tab[fill.pos[n][0] + i] + fill.tetri[n][i])
-				!= (fill.tab[fill.pos[n][0] + i] ^ fill.tetri[n][i]))
+		printf("C'est vraiment verticalement que ca passe pas?");
+		return (0);
+	}
+	printf("verif vertical: ok\n");
+	if (fill.max[n][1] + fill.pos[n][1] > fill.minsquare) //horizontal
+		return (0);
+	printf("verif horizontal: ok\n");
+	while (fill.tetri[i])
+	{
+		if (((fill.tab[fill.pos[n][0] + i] >> fill.pos[n][1]) & fill.tetri[n][i]) > 0)
+		{
+			printf("return 0 dans cmptetritab\n");
 			return (0);
+		}
 		i++;
 	}
+	printf("end cmptetritab: OK\n");
 	return (1);
 }
+
+//Jai meme pas besoin de decaler je crois. Il suffit que tab + tetri = tab ^ tetri
+//Ca fait pas de boucle donc plus rapide

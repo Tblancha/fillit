@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/28 02:29:53 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/06/30 07:17:01 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,11 @@ int main(int ac, char **av)
 //	fill.tab[0] = 31;
 //	fill.tab[1] = 15;
 //	fill.tab[2] = 15;
+	printf("tab[0] = %d\n", fill.tab[0]);
 	fill.pos[0] = ft_newposition(fill, 0);
-	printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
+	if (fill.pos[0])
+		printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
+	else
+		printf("newposition ret NULL car minsquare est trop petit surement\n");
 	return (0);
 }
