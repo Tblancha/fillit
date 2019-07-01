@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/30 16:52:04 by tblancha          #+#    #+#              #
-#    Updated: 2019/06/30 17:20:06 by tblancha         ###   ########.fr        #
+#    Updated: 2019/07/01 23:22:33 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC =	check_all.c \
 		lenmaxtetri.c \
 		recupdata.c \
 		reinipos.c \
+		reversetetri.c \
 
 OBJ =	$(SRC:.c=.o)
 
@@ -56,5 +57,6 @@ re : fclean all
 
 wo : fclean all clean
 
-main : fclean all clean
+main : wo
 		gcc $(FLAG) $(NAME) main.c libft/libft.a
+		/bin/rm -f $(OBJ)

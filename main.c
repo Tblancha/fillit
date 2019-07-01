@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/30 17:54:13 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/01 23:40:10 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,37 +84,85 @@ int main(int ac, char **av)
 		j = 0;
 	}
 
-
-
-
-	//	fill.tab[0] = 31;
-	//	fill.tab[1] = 15;
-	//	fill.tab[2] = 15;
-	fill.pos[0] = ft_newposition(fill, 0);
-	if (fill.pos[0])
-		printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
-	else
-		printf("newposition ret NULL car minsquare est trop petit surement\n");
-
-
-
-
-
-
-	printf("\n\n\nTest de filltab\n\n");
-	if (fill.pos[0])
-		fill.tab = ft_filltab(fill, 0);
+	fill.tetri = reversetetri(fill.tetri, fill.max);
 	i = 0;
-	while (fill.tab[i])
+	printf("\n\nREVERSETETRI\n\n");
+	while (fill.tetri[i])
 	{
-		printf("tab[%d] = %d\n", i, fill.tab[0]);
+		while (fill.tetri[i][j])
+		{
+			printf("tetri[%d][%d] = %d\n", i, j, fill.tetri[i][j]);
+			j++;
+		}
+		printf("\n");
 		i++;
-	}	
-	i = 0;
-	while (fill.tab[i])
-	{
-		ft_printbit(fill.tab[i]);
-		i++;
+		j = 0;
 	}
+
+
+
+	   fill.minsquare = 5;
+
+	   fill.tab[0] = 2;
+	   fill.tab[1] = 0;
+	   fill.tab[2] = 0;
+	   fill.pos[0] = ft_newposition(fill, 0);
+	   if (fill.pos[0])
+	   printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
+	   else
+	   printf("newposition ret NULL car minsquare est trop petit surement\n");
+
+
+
+
+
+
+	   printf("\n\n\nTest de filltab\n\n");
+	   if (fill.pos[0])
+	   fill.tab = ft_filltab(fill, 0);
+	   i = 0;
+	   while (fill.tab[i])
+	   {
+	   printf("tab[%d] = %d\n", i, fill.tab[i]);
+	   i++;
+	   }	
+	   i = 0;
+	   while (i < 10)
+	   {
+	   ft_printbit(fill.tab[i]);
+	   i++;
+	   }
+
+
+	/*	fill.minsquare = 10;
+		i = 0;
+		while (fill.tab[i])
+		fill.tab[i++] = 0;
+
+		printf("\n\nTest de Newposition en boucle\n\n");
+		i = 0;
+		printf("minsquare = %d\n", fill.minsquare);
+		while (i++ < 10)
+		{
+		j = 0;
+		fill.pos[0] = ft_newposition(fill, 0);
+		if (fill.pos[0])
+		{
+		printf("pos[0] = %d\npos[1] = %d\n", fill.pos[0][0], fill.pos[0][1]);
+		fill.tab = ft_filltab(fill, 0);
+		}
+		else
+		{
+		fill.pos[0] = reinipos(fill, 0);
+		printf("newposition ret NULL car minsquare est trop petit surement\n");
+		}
+		if (fill.pos[0])
+		{
+		while (j < 10)
+		ft_printbit(fill.tab[j++]);
+		}
+		printf("\n\n");
+		}
+		*/
 	return (0);
 }

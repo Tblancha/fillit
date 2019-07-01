@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 18:47:24 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/30 07:05:21 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/02 00:08:39 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int				ft_cmptetritab(t_fill fill, int n)
 		return (0);
 	while (fill.tetri[n][i])
 	{
-		if ((fill.tab[fill.pos[n][0] + i] + fill.tetri[n][i])
-				!= (fill.tab[fill.pos[n][0] + i] ^ fill.tetri[n][i]))
+		if ((fill.tab[fill.pos[n][0] + i] + (fill.tetri[n][i]
+						<< fill.pos[n][1])) != (fill.tab[fill.pos[n][0] + i]
+						^ (fill.tetri[n][i] << fill.pos[n][1])))
 			return (0);
 		i++;
 	}
