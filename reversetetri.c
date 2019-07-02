@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 22:57:24 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/01 23:21:26 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/02 01:34:34 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		*revtetri(int *tetri, int max)
 	int	i;
 
 	i = 0;
-	while(tetri[i])
+	while (tetri[i])
 	{
 		if (tetri[i] == 1 && max == 3)
 			tetri[i] = 4;

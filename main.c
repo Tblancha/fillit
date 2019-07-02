@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/01 23:40:10 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/02 01:34:58 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,35 @@ int main(int ac, char **av)
 {
 	char	**tetriminos;
 	int		i;
-	int		j;
+//	int		j;
 	t_fill	fill;
 
+	i = 0;
 	if (ac != 2)
+	{
+		ft_putstr("1Error\n");
+		return (0);
+	}
+	if (!(tetriminos = recupdata(&av[1])))
+	{
+		ft_putstr("2Error\n");
+		return (0);
+	}
+	if (!(fill.tetri = check_all(tetriminos)))
+	{
+		ft_putstr("3Error\n");
+		return (0);
+	}
+	fill = initialization(&fill);
+	fill.tetri = reversetetri(fill.tetri, fill.max);
+	fill = backtracking(fill);
+	while (i < fill.minsquare)
+	{
+		ft_printbit(fill.tab[i]);
+		i++;
+	}
+
+/*	if (ac != 2)
 	{
 		printf("ils faut 1 argument: le fichier tetriminos\n");
 		return (0);
@@ -133,7 +158,7 @@ int main(int ac, char **av)
 	   i++;
 	   }
 
-
+*/
 	/*	fill.minsquare = 10;
 		i = 0;
 		while (fill.tab[i])

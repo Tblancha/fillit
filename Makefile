@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/30 16:52:04 by tblancha          #+#    #+#              #
-#    Updated: 2019/07/01 23:22:33 by tblancha         ###   ########.fr        #
+#    Updated: 2019/07/02 01:11:03 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC =	check_all.c \
 		recupdata.c \
 		reinipos.c \
 		reversetetri.c \
+		backtracking.c \
 
 OBJ =	$(SRC:.c=.o)
 
