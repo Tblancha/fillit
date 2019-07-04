@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:40:03 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/15 05:56:24 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/02 05:12:56 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ int				**check_all(char **tetriminos)
 	tetri = NULL;
 	while (tetriminos[i])
 		i++;
-	if (!(tetri = (int**)malloc(sizeof(int*) * i + 1)))
+	if (!(tetri = (int**)malloc(sizeof(int*) * (i + 1))))
 		return (NULL);
+	tetri[i] = NULL;
 	i = 0;
 	while (tetriminos[i])
 	{

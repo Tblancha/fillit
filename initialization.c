@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 06:28:41 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/25 12:45:27 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/02 05:08:16 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_fill		initialization(t_fill *fill)
 	i = 0;
 	fill->nbtetri = ft_nbtetri(fill->tetri);
 	fill->minsquare = ft_minsquare(fill->nbtetri);
-	fill->max = lenmaxtetri(fill->tetri, fill->nbtetri);
+	fill->max = lenmaxtetri(fill);
 	if (!(fill->tab = (int*)malloc(sizeof(int) * 16)))
 		return (*fill);
 	if (!(fill->pos = (int**)malloc(sizeof(int*) * fill->nbtetri)))
@@ -29,12 +29,11 @@ t_fill		initialization(t_fill *fill)
 	i = 0;
 	while (i < fill->nbtetri)
 	{
-		if (!(fill->pos[i] = (int*)malloc(sizeof(int) * 2)))
+		if (!(fill->pos[i] = (int*)malloc(sizeof(int) * 3)))
 			return (*fill);
 		fill->pos[i][0] = 0;
 		fill->pos[i][1] = 0;
 		i++;
 	}
-
 	return (*fill);
 }

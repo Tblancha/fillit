@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/30 16:52:04 by tblancha          #+#    #+#              #
-#    Updated: 2019/07/02 01:11:03 by tblancha         ###   ########.fr        #
+#    Updated: 2019/07/02 04:38:36 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,4 +60,8 @@ wo : fclean all clean
 
 main : wo
 		gcc $(FLAG) $(NAME) main.c libft/libft.a
+		/bin/rm -f $(OBJ)
+
+sani : wo
+		gcc $(FLAG) -g -fsanitize=address $(NAME) main.c libft/libft.a
 		/bin/rm -f $(OBJ)

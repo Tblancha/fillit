@@ -6,20 +6,20 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 11:17:36 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/25 10:29:29 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/02 05:12:11 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-static int	*onemaxtetri(int *tetri)
+#include <stdio.h>
+static int	*onemaxtetri(int *tetri, int *max)
 {
 	int i;
-	int	*max;
 
 	i = 0;
 	if (!(max = (int*)malloc(sizeof(int) * 2)))
 		return (NULL);
+	max[1] = 1;
 	while (tetri[i])
 	{
 		if (tetri[i] > max[1])
@@ -38,21 +38,17 @@ static int	*onemaxtetri(int *tetri)
 	return (max);
 }
 
-int			**lenmaxtetri(int **tetri, int nbtetri)
+int			**lenmaxtetri(t_fill *fill)
 {
-	int **max;
 	int	j;
 
-	if (!tetri)
-		return (NULL);
 	j = 0;
-	if (!(max = (int**)malloc(sizeof(int*) * nbtetri)))
+	if (!(fill->max = (int**)malloc(sizeof(int*) * fill->nbtetri)))
 		return (NULL);
-	max[1] = 0;
-	while (j < nbtetri)
+	while (j < fill->nbtetri)
 	{
-		max[j] = onemaxtetri(tetri[j]);
+		fill->max[j] = onemaxtetri(fill->tetri[j], fill->max[j]);
 		j++;
 	}
-	return (max);
+	return (fill->max);
 }
