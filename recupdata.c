@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 05:10:25 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/14 06:01:51 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/06 00:42:07 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,17 @@ char			**recupdata(char **str)
 	{
 		if (ret == 21 && tetriminos[i][20] == '\n')
 			tetriminos[i][20] = '\0';
+		else if (ret == 20)
+			break ;
 		else
 			return (NULL);
 		i++;
 		if (!(tetriminos[i] = (char*)malloc(sizeof(char) * 20 + 1)))
 			return (NULL);
 	}
+	tetriminos[i][20] = '\0';
 	if (i > 26)
 		return (NULL);
-	tetriminos[i] = NULL;
+	tetriminos[i + 1] = NULL;
 	return (tetriminos);
 }
