@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/30 16:52:04 by tblancha          #+#    #+#              #
-#    Updated: 2019/07/02 04:38:36 by tblancha         ###   ########.fr        #
+#    Updated: 2019/07/06 00:35:16 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC =	check_all.c \
 		reinipos.c \
 		reversetetri.c \
 		backtracking.c \
+		ft_printfinaltab.c \
 
 OBJ =	$(SRC:.c=.o)
 
@@ -42,7 +43,7 @@ HEADER =fillit.h
 FLAG =	-Wall -Werror -Wextra
 
 $(NAME) :
-		gcc $(FLAG) -c $(SRC)
+		gcc $(FLAG) -c $(SRC) main.c libft/libft.a -o fillit
 		ar rc $(NAME) $(OBJ)
 		ranlib $(NAME)
 

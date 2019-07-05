@@ -6,12 +6,12 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 00:35:28 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/02 01:57:36 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/05 23:21:35 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
+
 t_fill	backtracking(t_fill fill)
 {
 	static int	i;

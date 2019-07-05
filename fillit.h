@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 14:48:43 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/02 04:14:52 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/05 00:04:28 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int				*reinipos(t_fill fill, int n);
 int				*ft_filltab(t_fill fill, int n);
 int				**reversetetri(int **tetri, int **max);
 t_fill			backtracking(t_fill fill);
+void			ft_printfinaltab(t_fill fill);
 
 #endif

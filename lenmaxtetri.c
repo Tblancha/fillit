@@ -6,12 +6,12 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 11:17:36 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/02 05:12:11 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/05 23:20:57 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
+
 static int	*onemaxtetri(int *tetri, int *max)
 {
 	int i;

@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/02 05:19:39 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/06 00:32:36 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int main(int ac, char **av)
 	fill = initialization(&fill);
 	fill.tetri = reversetetri(fill.tetri, fill.max);
 	fill = backtracking(fill);
+	ft_printfinaltab(fill);
 
 /*	if (ac != 2)
 	{
