@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 10:23:38 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/15 06:18:16 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/06 05:47:37 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		check_tl(char *str)
 static int		check_tr(char *str)
 {
 	if (!ft_strcmp((const char*)str, "#...\n##..\n#...\n....\n")
-			|| !ft_strcmp((const char*)str, ".#..\n.##.\n....\n.#..\n")
+			|| !ft_strcmp((const char*)str, ".#..\n.##.\n.#..\n....\n")
 			|| !ft_strcmp((const char*)str, "..#.\n..##\n..#.\n....\n")
 			|| !ft_strcmp((const char*)str, "....\n#...\n##..\n#...\n")
 			|| !ft_strcmp((const char*)str, "....\n.#..\n.##.\n.#..\n")

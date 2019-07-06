@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/22 05:37:05 by tblancha          #+#    #+#             */
-/*   Updated: 2019/06/30 20:02:21 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/06 05:48:44 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,33 @@ static int	*searchzero(t_fill fill, int n)
 	return (NULL);
 }
 
+/*static int	reajuste(t_fill fill, int n)
+{
+	if (fill.tetri[n][0] == 2 || fill.tetri[n][0] == 6)
+		fill.pos[n][1] -= 1;
+	else if	(fill.tetri[n][0] == 4)
+		fill.pos[n][1] -= 2;
+	return (fill.pos[n][1]);
+}
+
+static int	reajuste2(t_fill fill, int n)
+{
+	if (fill.tetri[n][0] == 2 || fill.tetri[n][0] == 6)
+		fill.pos[n][1] += 1;
+	else if	(fill.tetri[n][0] == 4)
+		fill.pos[n][1] += 2;
+	return (fill.pos[n][1]);
+}
+*/
 int			*ft_newposition(t_fill fill, int n)
 {
 	fill.pos[n] = searchzero(fill, n);
 	while (fill.pos[n] != NULL)
 	{
+//		fill.pos[n][1] = reajuste(fill, n);
 		if (ft_cmptetritab(fill, n))
 			return (fill.pos[n]);
+//		fill.pos[n][1] = reajuste2(fill, n);
 		fill.pos[n][1]++;
 		fill.pos[n] = searchzero(fill, n);
 	}
