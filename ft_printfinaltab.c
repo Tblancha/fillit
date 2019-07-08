@@ -6,11 +6,12 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 22:00:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/06 00:32:22 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/09 00:38:25 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 static char		**inisquare(char **square, int minsquare)
 {
@@ -19,23 +20,36 @@ static char		**inisquare(char **square, int minsquare)
 
 	i = 0;
 	j = 0;
-	if (!(square = (char**)malloc(sizeof(char*) * minsquare)))
+	if (!(square = (char**)malloc(sizeof(char*) * (minsquare + 1))))
 		return (NULL);
 	while (i < minsquare)
 	{
-		if (!(square[i] = (char*)malloc(sizeof(char) * minsquare)))
+		if (!(square[i] = (char*)malloc(sizeof(char) * (minsquare + 1))))
 			return (NULL);
-		square[i][minsquare] = '\0';
 		while (j < minsquare)
 		{
 			square[i][j] = '.';
 			j++;
 		}
+		square[i][j] = '\0';
 		j = 0;
 		i++;
 	}
 	square[minsquare] = NULL;
 	return (square);
+}
+
+static void		printfinal(char **square, int minsquare)
+{
+	int	i;
+
+	i = 0;
+	while (i < minsquare)
+	{
+		ft_putstr(square[i]);
+		ft_putchar('\n');
+		i++;
+	}
 }
 
 static char		**tetriintab(char **square, int *tetri, int *pos, char c)
@@ -59,7 +73,7 @@ static char		**tetriintab(char **square, int *tetri, int *pos, char c)
 	return (square);
 }
 
-static void		printfinal(char **square, int minsquare)
+/*static void		printfinal(char **square, int minsquare)
 {
 	int	i;
 
@@ -70,7 +84,7 @@ static void		printfinal(char **square, int minsquare)
 		ft_putchar('\n');
 		i++;
 	}
-}
+}*/
 
 void			ft_printfinaltab(t_fill fill)
 {

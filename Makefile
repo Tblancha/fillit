@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/30 16:52:04 by tblancha          #+#    #+#              #
-#    Updated: 2019/07/06 00:46:08 by tblancha         ###   ########.fr        #
+#    Updated: 2019/07/09 00:33:59 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OBJ =	$(SRC:.c=.o)
 
 HEADER =fillit.h
 
-FLAG =	-Wall -Werror -Wextra
+FLAG =	-g3 -Wall -Werror -Wextra
 
 $(NAME) :
 		gcc $(FLAG) -c $(SRC)
