@@ -6,7 +6,7 @@
 #    By: tblancha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/30 16:52:04 by tblancha          #+#    #+#              #
-#    Updated: 2019/07/09 03:30:53 by tblancha         ###   ########.fr        #
+#    Updated: 2019/07/09 04:11:56 by tblancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRC =		${addprefix $(SRCDIR), $(SRC_NAME)}
 
 OBJ =		${addprefix $(OBJDIR), $(OBJ_NAME)}
 
-HEADER =	header/fillit.h
+HEADER =	src/fillit.h
 
 FLAG =		-Wall -Werror -Wextra
 
@@ -56,21 +56,24 @@ LIB =		make -C libft
 
 all :		$(NAME)
 
-$(NAME) :	$(LIB)
-			gcc $(FLAG) -c $(SRC) $(LIBFT) $(HEADER)
+$(NAME) :	lib
+			gcc $(FLAG) -c $(SRC) $(HEADER)
 			ar rc $(NAME) $(OBJ_NAME)
 			ranlib $(NAME)
-			gcc $(FLAG) $(NAME) main.c -o fillit
 			mv $(OBJ_NAME) ./obj
+			gcc $(FLAG) -o fillit $(NAME) $(LIBFT) ./src/main.c
 
+lib :
+			make -C libft
 
 clean :
 			/bin/rm -f $(OBJ)
 			make -C libft clean
 
 fclean :	clean
-			/bin/rm -f $(NAME)
+			/bin/rm -f $(NAME) fillit
 			make -C libft fclean
 
 re : 		fclean all
 			make -C libft re
+

@@ -6,7 +6,7 @@
 /*   By: tblancha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 00:07:58 by tblancha          #+#    #+#             */
-/*   Updated: 2019/07/09 01:59:59 by tblancha         ###   ########.fr       */
+/*   Updated: 2019/07/09 04:20:39 by tblancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int		main(int ac, char **av)
 {
 	char	**tetriminos;
-	int		i;
 	t_fill	fill;
 
-	i = 0;
 	if (ac != 2)
 	{
 		ft_putstr("error\n");
